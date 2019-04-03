@@ -19,13 +19,16 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
-    # ...
-    # TODO: Decode digits from hexadecimal (base 16)
-    # ...
-    # TODO: Decode digits from any base (2 up to 36)
-    # ...
-
+    digits = digits[::-1]
+    exponent = 0
+    total = 0
+    #run the loop in reverse order adding up the results.
+    for i in range(len(digits)):
+        #multiply base by power i
+        adder = string.hexdigits.find(digits[i])*(base**i)
+        #add result to total
+        total += adder
+    return total
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
@@ -34,8 +37,13 @@ def encode(number, base):
     return: str -- string representation of number (in given base)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
+
+    # Convert number string into a reversed list
+
+
+
+
     # TODO: Encode number in binary (base 2)
     # ...
     # TODO: Encode number in hexadecimal (base 16)
@@ -80,4 +88,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    print(decode('1011', 2))
