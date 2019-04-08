@@ -1,11 +1,13 @@
 #!python
 
+names = ['Alex', 'Brian','Julia', 'Kojin','Nabil',  'Nick', 'Winnie',   ]
+
+
 def linear_search(array, item):
     """return the first index of item in array or None if item is not found"""
     # implement linear_search_iterative and linear_search_recursive below, then
     # change this to call your implementation to verify it passes all tests
-    return linear_search_iterative(array, item)
-    # return linear_search_recursive(array, item)
+    return linear_search_recursive(array, item)
 
 
 def linear_search_iterative(array, item):
@@ -17,10 +19,21 @@ def linear_search_iterative(array, item):
 
 
 def linear_search_recursive(array, item, index=0):
-    # TODO: implement linear search recursively here
-    pass
-    # once implemented, change linear_search to call linear_search_recursive
-    # to verify that your recursive implementation passes all tests
+    # Stephan github was a guide to this
+    #Step 1: check to see if len(array)==0 and trhow if it is
+    if len(array) == 0:
+        return {'Message:','Array has no items'}
+    #Step 2: Check to see if array[0] == 'item' and return index if it is
+    else:
+        if array[index] == item:
+            return index
+        #Step 3: itterate over the array until we fidn the 'item'
+        elif index < len(array)-1:
+            index += 1
+            return linear_search_recursive(array, item, index)
+        else:
+            return None
+    #Step 4: if not found, return "item not fund"
 
 
 def binary_search(array, item):
@@ -32,10 +45,43 @@ def binary_search(array, item):
 
 
 def binary_search_iterative(array, item):
-    # TODO: implement binary search iteratively here
-    pass
-    # once implemented, change binary_search to call binary_search_iterative
-    # to verify that your iterative implementation passes all tests
+    # Help credit == Stephan
+    if len(array) == 0:
+        return None
+
+    # Sets search windows
+    left = 0
+    right = len(array) - 1
+    #Set local variables
+    isFound = False
+    result = None
+
+    # start While loop
+    while isFound == False:
+
+        #condition if no result is found
+        if left == right:
+            if array[left] == item:
+                result = left
+                isFound = True
+                continue
+            return None
+
+        #Modifies search window
+        middle_index = (left + right) // 2
+        middle_value = array[middle_index]
+
+        # looks for item and modifies as needed
+        if middle_value == item:
+            result = middle_index
+            isFound = True
+        elif middle_value > item:
+            right = middle_index - 1
+        elif middle_value < item:
+            left = middle_index + 1
+
+    return result
+
 
 
 def binary_search_recursive(array, item, left=None, right=None):
@@ -43,3 +89,8 @@ def binary_search_recursive(array, item, left=None, right=None):
     pass
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
+
+
+if __name__ == '__main__':
+    result = binary_search_iterative(names, 'Nick')
+    print(result)

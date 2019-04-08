@@ -26,6 +26,8 @@ def decode(digits, base):
         total += adder
     return total
 
+    # assert encode(15, 2) == '1111'
+
 def encode(number, base):
     #Got Help from Marrianna
     # Handle up to base 36 [0-9a-z]
@@ -38,14 +40,13 @@ def encode(number, base):
     base_list = []
     while looper is False:
         base_value = base**current_base
+        print(base_value, current_base)
         if base_value < number:
             base_list.insert(0,current_base)
             current_base += 1
-
         elif base_value == number:
             base_list.insert(0,current_base)
             looper = True
-
         else:
             looper = True
 
@@ -88,5 +89,5 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
-    print(encode(12, 2))
+    main()
+    # print(encode(12, 2))
