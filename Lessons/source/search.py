@@ -58,7 +58,9 @@ def binary_search_iterative(array, item):
 
     # start While loop
     while isFound == False:
-
+                #Modifies search window
+        middle_index = (left + right) // 2
+        middle_value = array[middle_index]
         #condition if no result is found
         if left == right:
             if array[left] == item:
@@ -66,11 +68,6 @@ def binary_search_iterative(array, item):
                 isFound = True
                 continue
             return None
-
-        #Modifies search window
-        middle_index = (left + right) // 2
-        middle_value = array[middle_index]
-
         # looks for item and modifies as needed
         if middle_value == item:
             result = middle_index
