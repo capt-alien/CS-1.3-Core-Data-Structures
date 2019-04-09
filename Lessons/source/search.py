@@ -85,16 +85,32 @@ def binary_search_recursive(array, item, left=None, right=None):
     if len(array) == 0:
         return None
         #Window
-    if left = None:
+    if left == None:
         left = 0
         right = len(array)-1
+        #Escape clause for if we searched everything
+    if left > right:
+        return None
         #Window
-        middle_index = (left + right) // 2
-        middle_value = array[middle_index]
+    middle_index = (left + right) // 2
+    middle_value = array[middle_index]
+
+    if item == middle_value:
+        return middle_index
+
+    elif item > middle_value:
+        left = middle_index + 1
+
+    elif item < middle_value:
+        right = middle_index -1
+
+    return binary_search_recursive(array, item, left, right)
+
+
 
 
 
 
 if __name__ == '__main__':
-    result = binary_search_iterative(names, 'Nick')
+    result = binary_search_recursive(names, 'Nick')
     print(result)
