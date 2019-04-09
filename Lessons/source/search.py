@@ -82,10 +82,17 @@ def binary_search_iterative(array, item):
 
 
 def binary_search_recursive(array, item, left=None, right=None):
-    # TODO: implement binary search recursively here
-    pass
-    # once implemented, change binary_search to call binary_search_recursive
-    # to verify that your recursive implementation passes all tests
+    if len(array) == 0:
+        return None
+        #Window
+    if left = None:
+        left = 0
+        right = len(array)-1
+        #Window
+        middle_index = (left + right) // 2
+        middle_value = array[middle_index]
+
+
 
 
 if __name__ == '__main__':
