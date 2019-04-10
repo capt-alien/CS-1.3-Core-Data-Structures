@@ -1,4 +1,5 @@
 #!python
+import re
 
 import string
 # Hint: Use these string constants to ignore capitalization and/or punctuation
@@ -16,12 +17,26 @@ def is_palindrome(text):
     return is_palindrome_iterative(text)
     # return is_palindrome_recursive(text)
 
+def is_palindrome_easy(text):
+    # Take text make it all lowercase and filter out non-letters using re
+    lower= text.lower()
+    text_list = re.findall('[a-z]', lower)
+    print(text_list)
+    print(text_list[::-1])
+    if text_list == text_list[::-1]:
+        return True
+
 
 def is_palindrome_iterative(text):
-    # TODO: implement the is_palindrome function iteratively here
-    pass
-    # once implemented, change is_palindrome to call is_palindrome_iterative
-    # to verify that your iterative implementation passes all tests
+    # Take text make it all lowercase and filter out non-letters using re
+    lower= text.lower()
+    text_list = re.findall('[a-z]', lower)
+    print(text_list)
+    print(text_list[::-1])
+    if text_list == text_list[::-1]:
+        return True
+    # Turn text into a list
+    #
 
 
 def is_palindrome_recursive(text, left=None, right=None):
