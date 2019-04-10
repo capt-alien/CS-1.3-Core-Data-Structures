@@ -30,13 +30,20 @@ def is_palindrome_easy(text):
 def is_palindrome_iterative(text):
     # Take text make it all lowercase and filter out non-letters using re
     lower= text.lower()
+    # Use RE to filter out non alpha char and split into list
     text_list = re.findall('[a-z]', lower)
-    print(text_list)
-    print(text_list[::-1])
-    if text_list == text_list[::-1]:
-        return True
+    # Create search windows
+    left = 0
+    right = len(text_list)-1
     # Turn text into a list
-    #
+    while left<right:
+        if text_list[left] != text_list[right]:
+            return False
+            break
+        else:
+            left += 1
+            right -= 1
+    return True
 
 
 def is_palindrome_recursive(text, left=None, right=None):
