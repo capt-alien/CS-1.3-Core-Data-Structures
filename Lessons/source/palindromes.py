@@ -50,9 +50,10 @@ def is_palindrome_recursive(text, left=None, right=None):
     lower= text.lower()
     # Use RE to filter out non alpha char and split into list
     text_list = re.findall('[a-z]', lower)
+    # if sting is ''
     if len(text_list)==0:
         return True
-
+    # If first round
     if left == None:
         left = 0
         right = len(text_list)-1
