@@ -14,7 +14,7 @@ def is_palindrome(text):
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_iterative(text)
+    return is_palindrome_recursive(text)
     # return is_palindrome_recursive(text)
 
 def is_palindrome_easy(text):
@@ -35,7 +35,6 @@ def is_palindrome_iterative(text):
     # Create search windows
     left = 0
     right = len(text_list)-1
-    # Turn text into a list
     while left<right:
         if text_list[left] != text_list[right]:
             return False
@@ -47,10 +46,26 @@ def is_palindrome_iterative(text):
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    # TODO: implement the is_palindrome function recursively here
-    pass
-    # once implemented, change is_palindrome to call is_palindrome_recursive
-    # to verify that your iterative implementation passes all tests
+    # Take text make it all lowercase and filter out non-letters using re
+    lower= text.lower()
+    # Use RE to filter out non alpha char and split into list
+    text_list = re.findall('[a-z]', lower)
+    if len(text_list)==0:
+        return True
+
+    if left == None:
+        left = 0
+        right = len(text_list)-1
+    # escape clause if true
+    if text_list[left] != text_list[right]:
+        return False
+    elif left >= right:
+        return True
+    else:
+        left +=1
+        right -=1
+        return is_palindrome_recursive(text, left, right)
+
 
 
 def main():
