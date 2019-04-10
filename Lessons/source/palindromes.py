@@ -46,10 +46,6 @@ def is_palindrome_iterative(text):
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    # Take text make it all lowercase and filter out non-letters using re
-    lower= text.lower()
-    # Use RE to filter out non alpha char and split into list
-    text_list = re.findall('[a-z]', lower)
     # if sting is ''
     if len(text_list)==0:
         return True
@@ -57,6 +53,8 @@ def is_palindrome_recursive(text, left=None, right=None):
     if left == None:
         left = 0
         right = len(text_list)-1
+        lower= text.lower()
+        text_list = re.findall('[a-z]', lower)
     # escape clause if true
     if text_list[left] != text_list[right]:
         return False

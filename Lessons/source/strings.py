@@ -12,7 +12,7 @@ def contains(text, pattern):
     if pat_size ==0:
         return True
         # While Loop
-    for i in range(0,len(text)-1):
+    for i in range(0,len(text)-len(pattern)+1):
         right = (i +pat_size)
         if text[i:right] == pattern:
             return True
