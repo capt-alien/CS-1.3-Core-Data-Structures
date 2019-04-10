@@ -63,9 +63,7 @@ def is_palindrome_recursive(text, left=None, right=None):
     elif left >= right:
         return True
     else:
-        left +=1
-        right -=1
-        return is_palindrome_recursive(text, left, right)
+        return is_palindrome_recursive(text, left + 1 , right-1)
 
 
 
