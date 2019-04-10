@@ -1,4 +1,6 @@
 #!python
+import sys
+
 
 def contains(text, pattern):
     """Return a boolean indicating whether pattern occurs in text."""
@@ -6,10 +8,42 @@ def contains(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
     #Turn text and patteren into list
-    text = text.split()
-    pattern = pattern.split()
+    text = list(text)
+    pattern = list(pattern)
+    # Bounds
+    left = 0
+    right = len(pattern) -1
+    is_match = False
+
+    # while is_match = False:
+
+
     #scan text to see if a letter matches pattern[0]
-    for i in range(0,len(text)-1):
+    # for i in range(0, pat_size):
+    #     print("****TEST 1 *****")
+    #     if text[i] == pattern[0]:
+    #         print("****TEST 2 *****")
+    #         if pat_size == 1:
+    #             return True
+    #             break
+    #         else:
+    #
+    #             matching = True
+    #             while matching == True:
+    #                 # Loop through the rest of patteren
+    #                 for m in range(1, pat_size-1):
+    #                     if text[i+m] != pattern[m]:
+    #                         matching = False
+    #                     else:
+    #                         if m == pat_size - 1:
+    #                             return True
+    #                             break
+    #     # If we get through the entire text string return False
+    print("***END TEST****")
+    return False
+
+
+
 
 
 
@@ -44,7 +78,6 @@ def test_string_algorithms(text, pattern):
 
 def main():
     """Read command-line arguments and test string searching algorithms."""
-    import sys
     args = sys.argv[1:]  # Ignore script file name
     if len(args) == 2:
         text = args[0]
