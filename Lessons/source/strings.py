@@ -5,9 +5,6 @@ import sys
 def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement contains here (iteratively and/or recursively)
-    #Turn text and patteren into list
-    # '' escape
     pat_size = len(pattern)
     if pat_size ==0:
         return True
@@ -17,9 +14,6 @@ def contains(text, pattern):
         if text[i:right] == pattern:
             return True
     return False
-            #Now that we have a mathing letter Check for the rest of patteren
-        # If we get through the entire text string return False
-
 
 
 def find_index(text, pattern):
@@ -37,10 +31,8 @@ def find_index(text, pattern):
         if text[i:right] == pattern:
             return i
 
-def find_all_indexes(text, pattern):
-    # """Return a list of starting indexes of all occurrences of pattern in text,
-    # or an empty list if not found."""
 
+def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
@@ -48,15 +40,17 @@ def find_all_indexes(text, pattern):
     indicies = []
     # *************this is not passing tes Solave with list compt**********
     if pat_size ==0:
-        indicies.append(0)
+        for i in range(0,len(text)):
+            indicies.append(i)
+        return indicies
     # *************this is not passing test**********
-
         # While Loop
     for i in range(0,len(text)-len(pattern)+1):
         right = (i +pat_size)
         if text[i:right] == pattern:
             indicies.append(i)
     return indicies
+
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)
