@@ -95,6 +95,7 @@ class LinkedList(object):
         Best and worst case running time: ??? under what conditions? [TODO]"""
         # Create a new node to hold the given item
         new_node = Node(item)
+        self.size += 1
         # Check if this linked list is empty
         if self.is_empty():
             # Assign head to new node
@@ -110,6 +111,7 @@ class LinkedList(object):
         Best and worst case running time: ??? under what conditions? [TODO]"""
         # Create a new node to hold the given item
         new_node = Node(item)
+        self.size += 1
         # Check if this linked list is empty
         if self.is_empty():
             # Assign tail to new node
@@ -175,18 +177,21 @@ class LinkedList(object):
                 previous.next = node.next
                 # Unlink the found node from its next node
                 node.next = None
+                self.size -= 1
             # Check if we found a node at the head
             if node is self.head:
                 # Update head to the next node
                 self.head = node.next
                 # Unlink the found node from the next node
                 node.next = None
+                self.size -= 1
             # Check if we found a node at the tail
             if node is self.tail:
                 # Check if there is a node before the found node
                 if previous is not None:
                     # Unlink the previous node from the found node
                     previous.next = None
+                    self.size -= 1
                 # Update tail to the previous node regardless
                 self.tail = previous
         else:
