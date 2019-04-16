@@ -1,6 +1,4 @@
-list_a = ['a','b', 'c', 'd']
-
-a = list_a.pop(0)
-
-print(a)
-print(list_a)
+with open("stack.py") as fp:
+    for i, line in enumerate(fp):
+        if "\xe2" in line:
+            print i, repr(line)

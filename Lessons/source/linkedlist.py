@@ -106,7 +106,7 @@ class LinkedList(object):
                 index -= 1
             new_node.next = node.next
             node.next = new_node
-            self.size += 1                          #
+            self.size += 1
 
 
 

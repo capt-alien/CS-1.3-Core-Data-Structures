@@ -29,7 +29,7 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O– Why? first element being accessed"""
         LinkedList.prepend(item)
 
     def peek(self):
@@ -40,7 +40,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O – Why? it's always the first element being removed"""
         magazine = LinkedList.peek()
         LinkedList.delete(magazine)
         return magazine
@@ -97,5 +97,5 @@ class ArrayStack(object):
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
-Stack = LinkedStack
+Stack = ArrayStack
 # Stack = ArrayStack
