@@ -99,7 +99,8 @@ class LinkedList(object):
             previous_node = current_node
             current_node = current_node.next
         new_node.next = current_node
-        # set new node in place
+        self.size += 1
+        # set new node in place IN cease its first thing in list
         if previous_node != None:
             previous_node.next = new_node
         else:
