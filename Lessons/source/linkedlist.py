@@ -84,30 +84,30 @@ class LinkedList(object):
         return current_node.data
 
     def insert_at_index(self, index, item):
+        #Cred == Steven's code
         # Best case running time: ??? under what conditions? [TODO]
                 # 0 if the index = 0 or a low number
         # Worst case running time: ??? under what conditions? [TODO
                 # N if the index is at the end of the list.
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
-        # Instaiate new nodes
-        new_node = Node(item)
-        #start at begining of list and itterate
-        current_node = self.head
-        previous_node = None
-        for count in range(index):
-            previous_node = current_node
-            current_node = current_node.next
-        new_node.next = current_node
-        self.size += 1
-        # set new node in place IN cease its first thing in list
-        if previous_node != None:
-            previous_node.next = new_node
+            # IF the list is empty:
+        if self.is_empty() or index == self.size:
+            self.append(item)
+            #if index is to be insterted at begining
+        elif not self.is_empty() and index == 0:
+            self.prepend(item)
+            #Or just go find this index and put it there
         else:
-            self.head = new_node
-            if new_node.next == None:
-                self.tail = new_node
-            self.size += 1
+            new_node = Node(item)
+            node = self.head
+            while index > 1 and node is not None:
+                node = node.next
+                index -= 1
+            new_node.next = node.next
+            node.next = new_node
+            self.size += 1                          #
+
 
 
     def append(self, item):
