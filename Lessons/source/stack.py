@@ -21,28 +21,28 @@ class LinkedStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        return self.is_empty()
+        return LinkedList.is_empty()
 
     def length(self):
         """Return the number of items in this stack."""
-        return self.length()
+        return LinkedList.length()
 
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
-        self.prepend(item)
+        LinkedList.prepend(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        return get_at_index(0)
+        return LinkedList.get_at_index(0)
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
-        magazine = self.peek()
-        self.delete(magazine)
+        magazine = LinkedList.peek()
+        LinkedList.delete(magazine)
         return magazine
 
 
@@ -65,27 +65,34 @@ class ArrayStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
+        if self.list[0]:
+            return True
+        else:
+            return False
 
     def length(self):
         """Return the number of items in this stack."""
-        # TODO: Count number of items
+        return len(self.list)
 
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Insert given item
+        self.list.insert(0,item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        if self.list.is_empty():
+            return None
+        else:
+            return self.list[0]
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Remove and return top item, if any
+        magizine = self.list.pop(0)
+        return magazine
 
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
