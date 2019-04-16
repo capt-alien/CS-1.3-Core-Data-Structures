@@ -29,7 +29,7 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O– Why? first element being accessed"""
+        Running time: O Why? first element being accessed"""
         LinkedList.prepend(item)
 
     def peek(self):
