@@ -21,28 +21,31 @@ class LinkedStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        return LinkedList.is_empty()
+        return self.list.is_empty()
 
     def length(self):
         """Return the number of items in this stack."""
-        return LinkedList.length()
+        return self.list.length()
 
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O Why? first element being accessed"""
-        LinkedList.prepend(item)
+        self.list.prepend(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        return LinkedList.get_at_index(0)
+        if self.is_empty():
+            return None
+        else:
+            return self.list.head.data
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O – Why? it's always the first element being removed"""
-        magazine = LinkedList.peek()
-        LinkedList.delete(magazine)
+        magazine = self.peek()
+        self.list.delete(magazine)
         return magazine
 
 
@@ -65,10 +68,7 @@ class ArrayStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        if self.list[0]:
-            return True
-        else:
-            return False
+        return len(self.list) == 0
 
     def length(self):
         """Return the number of items in this stack."""
@@ -82,7 +82,7 @@ class ArrayStack(object):
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        if self.list.is_empty():
+        if self.is_empty():
             return None
         else:
             return self.list[0]
@@ -91,11 +91,14 @@ class ArrayStack(object):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
-        magizine = self.list.pop(0)
-        return magazine
+        if self.is_empty():
+            raise ValueError("list is empty")
+        else:
+            magazine = self.list.pop(0)
+            return magazine
 
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
-Stack = ArrayStack
+Stack = LinkedStack
 # Stack = ArrayStack
