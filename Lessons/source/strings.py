@@ -3,6 +3,7 @@ import sys
 
 
 def contains(text, pattern):
+    #O^n
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     pat_size = len(pattern)
@@ -17,6 +18,7 @@ def contains(text, pattern):
 
 
 def find_index(text, pattern):
+    #O^n
     # Return the starting index of the first occurrence of pattern in text,
     # or None if not found.
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
@@ -33,17 +35,15 @@ def find_index(text, pattern):
 
 
 def find_all_indexes(text, pattern):
+    # O^n
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement find_all_indexes here (iteratively and/or recursively)
     pat_size = len(pattern)
     indicies = []
-    # *************this is not passing tes Solave with list compt**********
     if pat_size ==0:
         for i in range(0,len(text)):
             indicies.append(i)
         return indicies
-    # *************this is not passing test**********
         # While Loop
     for i in range(0,len(text)-len(pattern)+1):
         right = (i +pat_size)
