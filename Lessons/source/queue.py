@@ -29,7 +29,8 @@ class LinkedQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O – Why? the progam needs to append to the back of the List
+        which could take some time if there are a lot of list items"""
         self.list.append(item)
 
     def front(self):
@@ -43,7 +44,7 @@ class LinkedQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O– Why? Takes the first thing on the top of list"""
         if self.is_empty():
             raise ValueError("list is empty")
         else:
@@ -77,7 +78,7 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: n – Why? it needs to go to the back of the list"""
         self.list.append(item)
 
     def front(self):
@@ -91,7 +92,7 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? once again, it only needs to take what is on top of the list"""
         if self.is_empty():
             raise ValueError("list is empty")
         else:
