@@ -49,7 +49,7 @@ class LinkedQueue(object):
             raise ValueError("list is empty")
         else:
             tube = self.front()
-            self.list.delete(magazine)
+            self.list.delete(tube)
             return tube
 
 # Implement ArrayQueue below, then change the assignment at the bottom
